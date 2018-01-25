@@ -1,4 +1,6 @@
-﻿namespace skillTreeMvcHomeWork.Models.ViewModels
+﻿using System;
+
+namespace skillTreeMvcHomeWork.Models.ViewModels
 {
     public class MoneyData
     {
