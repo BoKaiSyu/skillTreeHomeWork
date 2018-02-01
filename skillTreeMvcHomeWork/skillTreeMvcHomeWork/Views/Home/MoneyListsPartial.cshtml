@@ -1,5 +1,17 @@
 ﻿@model IEnumerable<skillTreeMvcHomeWork.Models.ViewModels.MoneyData>
 
+@helper MoneyType(int type)
+{
+if (type == 0)
+{
+<span style="color:red">支出</span>
+}
+else
+{
+<span style="color:blue">收入</span>
+}
+}
+
 <table class="table">
     <tr>
         <th>
@@ -20,18 +32,19 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.number)
+                @item.number
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.moneyType)
+                @MoneyType(item.moneyType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.time)
+                @item.time.ToString("yyyy-MM-dd")
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.money)
+                @item.money.ToString("0,0", System.Globalization.CultureInfo.InvariantCulture)
             </td>
         </tr>
     }
-
 </table>
+
+

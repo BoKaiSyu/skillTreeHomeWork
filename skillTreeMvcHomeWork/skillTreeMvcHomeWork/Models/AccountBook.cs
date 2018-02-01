@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace skillTreeMvcHomeWork
+namespace skillTreeMvcHomeWork.Models
 {
     using System;
     using System.Collections.Generic;

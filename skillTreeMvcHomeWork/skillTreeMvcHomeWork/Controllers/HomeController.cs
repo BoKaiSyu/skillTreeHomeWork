@@ -12,9 +12,26 @@ namespace skillTreeMvcHomeWork.Controllers
         private HomeService homeService = new HomeService();
         public ActionResult Index()
         {
-            return View(homeService.getDataLists());
+            CreateMoneyDataViewModel temp = new CreateMoneyDataViewModel
+            {
+                selectLists = homeService.getSelectLists(),
+                moneyData = new MoneyData()
+            };
+            return View(temp);
         }
-
+        [HttpPost]
+        public ActionResult Save(CreateMoneyDataViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                homeService.save(viewModel.moneyData);
+            }
+            return RedirectToAction("MoneyListsPartial");
+        }
+        public ActionResult MoneyListsPartial()
+        {
+            return PartialView(homeService.getDataLists());
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

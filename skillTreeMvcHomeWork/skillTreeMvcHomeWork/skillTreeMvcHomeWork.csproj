@@ -155,34 +155,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountBook.cs">
-      <DependentUpon>skilltreeDataBase.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Services\HomeService.cs" />
+    <Compile Include="Controllers\ValidController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountBook.cs">
+      <DependentUpon>skillTreedb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\skillTreedb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>skillTreedb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\skillTreedb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>skillTreedb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\skillTreedb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>skillTreedb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\CreateMoneyDataViewModel.cs" />
     <Compile Include="Models\ViewModels\MoneyData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="skilltreeDataBase.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>skilltreeDataBase.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="skilltreeDataBase.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>skilltreeDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="skilltreeDataBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>skilltreeDataBase.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SkillTreeHomework.mdf" />
@@ -195,6 +197,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\skillTreedb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>skillTreedb.edmx</DependentUpon>
+      <LastGenOutput>skillTreedb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\skillTreedb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>skillTreedb.edmx</DependentUpon>
+      <LastGenOutput>skillTreedb.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -202,10 +214,19 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EntityDeploy Include="Models\skillTreedb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>skillTreedb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\skillTreedb.edmx.diagram">
+      <DependentUpon>skillTreedb.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -214,16 +235,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="skilltreeDataBase.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>skilltreeDataBase.edmx</DependentUpon>
-      <LastGenOutput>skilltreeDataBase.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="skilltreeDataBase.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>skilltreeDataBase.edmx</DependentUpon>
-      <LastGenOutput>skilltreeDataBase.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -238,14 +249,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_MoneyListsPartial.cshtml" />
-    <EntityDeploy Include="skilltreeDataBase.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>skilltreeDataBase.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="skilltreeDataBase.edmx.diagram">
-      <DependentUpon>skilltreeDataBase.edmx</DependentUpon>
-    </Content>
+    <Content Include="Views\Home\MoneyListsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -257,6 +261,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Valid\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

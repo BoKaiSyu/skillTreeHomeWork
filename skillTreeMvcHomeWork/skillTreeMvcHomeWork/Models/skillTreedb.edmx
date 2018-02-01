@@ -33,7 +33,7 @@
           <Property Name="Dateee" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Remarkkk" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="SkillTreeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SkillTreeHomeworkEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AccountBook" EntityType="Self.AccountBook" />
         </EntityContainer>
       </Schema>
@@ -41,7 +41,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SkillTreeHomeworkModelStoreContainer" CdmEntityContainer="SkillTreeEntities">
+        <EntityContainerMapping StorageEntityContainer="SkillTreeHomeworkModelStoreContainer" CdmEntityContainer="SkillTreeHomeworkEntities">
           <EntitySetMapping Name="AccountBook">
             <EntityTypeMapping TypeName="SkillTreeHomeworkModel.AccountBook">
               <MappingFragment StoreEntitySet="AccountBook">

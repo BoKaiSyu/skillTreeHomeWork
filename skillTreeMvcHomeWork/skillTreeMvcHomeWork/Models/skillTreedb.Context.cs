@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace skillTreeMvcHomeWork
+namespace skillTreeMvcHomeWork.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SkillTreeEntities : DbContext
+    public partial class SkillTreeHomeworkEntities : DbContext
     {
-        public SkillTreeEntities()
-            : base("name=SkillTreeEntities")
+        public SkillTreeHomeworkEntities()
+            : base("name=SkillTreeHomeworkEntities")
         {
         }
     
