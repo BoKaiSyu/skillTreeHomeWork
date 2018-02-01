@@ -12,7 +12,7 @@ namespace skillTreeMvcHomeWork.Models.ViewModels
         public int moneyType { get; set; }
         [Display(Name = "日期")]
         [Required(ErrorMessage = "請輸入日期!")]
-        //[Remote("checkDateTime", "Valid")]
+        [Remote("checkDateTime", "Valid")]
         public DateTime time { get; set; }
         [Display(Name = "金額")]
         [Required(ErrorMessage = "請輸入金額!")]

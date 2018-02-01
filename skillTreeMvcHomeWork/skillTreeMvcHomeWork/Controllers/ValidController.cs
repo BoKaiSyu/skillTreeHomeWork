@@ -11,7 +11,7 @@ namespace skillTreeMvcHomeWork.Controllers
         public ActionResult checkDateTime(DateTime time)
         {
             bool isValidate = time <= DateTime.Now;
-            return Json(isValidate, JsonRequestBehavior.AllowGet);
+            return Json(isValidate ? "true" : "輸入的日期不能大於今天!", JsonRequestBehavior.AllowGet);
         }
     }
 }

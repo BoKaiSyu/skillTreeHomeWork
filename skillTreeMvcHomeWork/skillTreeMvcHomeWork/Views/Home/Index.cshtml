@@ -1,58 +1,58 @@
-﻿@model skillTreeMvcHomeWork.Models.ViewModels.CreateMoneyDataViewModel
+﻿@model skillTreeMvcHomeWork.Models.ViewModels.MoneyData
 
-    @using (Ajax.BeginForm("Save", "Home", new AjaxOptions
-    {
-        HttpMethod = "POST",
-        UpdateTargetId = "showLists"
-    }))
-    {
-        @Html.AntiForgeryToken()
+@using (Ajax.BeginForm("Save", "Home", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "showLists"
+}))
+{
+    @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <h4>MoneyData</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>MoneyData</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.moneyData.moneyType, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.moneyData.moneyType, (IEnumerable<SelectListItem>)Model.selectLists, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.moneyData.moneyType, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.moneyData.time, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.moneyData.time, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.moneyData.time, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.moneyData.money, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.moneyData.money, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.moneyData.money, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.moneyData.remark, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.moneyData.remark, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.moneyData.remark, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.moneyType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.moneyType, (IEnumerable<SelectListItem>)ViewData["selectLists"], new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.moneyType, "", new { @class = "text-danger" })
             </div>
         </div>
-    }
-    <div id="showLists">
-        @Html.Action("MoneyListsPartial")
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.time, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.time, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.time, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.money, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.money, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.money, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.remark, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.remark, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remark, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
     </div>
+}
+<div id="showLists">
+    @Html.Action("MoneyListsPartial")
+</div>
 
